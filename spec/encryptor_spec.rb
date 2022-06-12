@@ -28,4 +28,8 @@ RSpec.describe Encryptor do
   it "has a random key generator" do
     expect(@encrypt.key_generator.length).to eq 5
   end
+
+  it "has an offset generator" do
+    expect(@encrypt.offsets).to be_a(Hash)
+  end
 end
