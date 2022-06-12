@@ -3,7 +3,7 @@ require './lib/enigma'
 
 RSpec.describe Encryptor do
   before :each do
-    @encrypt= Encryptor.new("hello world", "02715", "040895")
+    @encrypt = Encryptor.new("hello world", "02715", "040895")
   end
 
   it "exists with attributes" do
@@ -15,5 +15,9 @@ RSpec.describe Encryptor do
 
   it "has a character set array by default" do
     expect(@encrypt.character_set).to eq(["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])
+  end
+
+  it "has a date of transmission" do
+    expect(@encrypt.date_of_transmission).to eq(1672401025)
   end
 end
