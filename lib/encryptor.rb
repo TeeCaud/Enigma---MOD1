@@ -1,33 +1,33 @@
+require 'pry'
 class Encryptor
 
   attr_reader :message,
    :key,
    :date,
    :character_set,
-   :date_of_transmission
-   
+   :date_of_transmission,
+   :keys
+
   def initialize(message, key, date)
     @message = message
     @key = key
     @date = date
     @character_set = ("a".."z").to_a <<  " "
     @date_of_transmission = @date.to_i ** 2
+    @keys = Hash.new
   end
 
-  def encrypt
-    character_set = ("a".."z").to_a <<  " "
-    random_nums = 5.times.map { rand(5) }
-    a_key = random_nums[0..1]
-    b_key = random_nums[1..2]
-    c_key = random_nums[2..3]
-    d_key = random_nums[3..4]
+  def key_generator
+    @key = 5.times.map { rand(10) }.join
+  end
 
-    date_of_transmission = @date.to_i ** 2
+  def generate_keys
+    @keys[:a_key] = @key[0..1].to_i
+    @kyes[:b_key] = @key[1..2].to_i
+    @keys[:c_key] = @key[2..3].to_i
+    @keys[:d_key] = @key[3..4].to_i
+  end
 
-    a_offset = date_of_transmission.to_s[-4..-1][0].to_i
-    b_offset = date_of_transmission.to_s[-4..-1][1].to_i
-    c_offset = date_of_transmission.to_s[-4..-1][2].to_i
-    d_offset = date_of_transmission.to_s[-4..-1][3].to_i
-    binding.pry
+    def encrypt
   end
 end

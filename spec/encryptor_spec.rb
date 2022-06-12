@@ -20,4 +20,12 @@ RSpec.describe Encryptor do
   it "has a date of transmission" do
     expect(@encrypt.date_of_transmission).to eq(1672401025)
   end
+
+  it "has a hash of keys" do
+    expect(@encrypt.keys).to be_a(Hash)
+  end
+
+  it "has a random key generator" do
+    expect(@encrypt.key_generator.length).to eq 5
+  end
 end

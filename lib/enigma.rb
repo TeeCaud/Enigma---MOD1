@@ -22,7 +22,7 @@ class Enigma
     b_offset = date_of_transmission.to_s[-4..-1][1].to_i
     c_offset = date_of_transmission.to_s[-4..-1][2].to_i
     d_offset = date_of_transmission.to_s[-4..-1][3].to_i
-    binding.pry
+    # binding.pry
   end
 
 end
