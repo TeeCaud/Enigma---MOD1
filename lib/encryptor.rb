@@ -31,14 +31,16 @@ class Encryptor
     @keys[:b_key] = @key[1..2].to_i
     @keys[:c_key] = @key[2..3].to_i
     @keys[:d_key] = @key[3..4].to_i
+    @keys
   end
 
   def generate_offsets
     offset = (@date.to_i ** 2).to_s[-4..-1]
-    @offsets[:a_offset] = offset[0]
-    @offsets[:b_offset] = offset[1]
-    @offsets[:c_offset] = offset[2]
-    @offsets[:d_offset] = offset[3]
+    @offsets[:a_offset] = offset[0].to_i
+    @offsets[:b_offset] = offset[1].to_i
+    @offsets[:c_offset] = offset[2].to_i
+    @offsets[:d_offset] = offset[3].to_i
+    @offsets
   end
 
 

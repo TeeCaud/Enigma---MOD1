@@ -29,7 +29,15 @@ RSpec.describe Encryptor do
     expect(@encrypt.key_generator.length).to eq 5
   end
 
+  it "can generate keys" do
+    expect(@encrypt.generate_keys).to eq({:a_key=>2, :b_key=>27, :c_key=>71, :d_key=>15})
+  end
+
   it "has an offset generator" do
     expect(@encrypt.offsets).to be_a(Hash)
+  end
+
+  it "can generate offsets" do
+    expect(@encrypt.generate_offsets).to eq({:a_offset=>1, :b_offset=>0, :c_offset=>2, :d_offset=>5})
   end
 end
