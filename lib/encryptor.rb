@@ -6,7 +6,8 @@ class Encryptor
    :date,
    :character_set,
    :keys,
-   :offsets
+   :offsets,
+   :shifts
 
   def initialize(message, key, date)
     @message = message
@@ -16,6 +17,7 @@ class Encryptor
     @date_of_transmission = @date.to_i ** 2
     @keys = Hash.new(0)
     @offsets = Hash.new(0)
+    @shifts = Hash.new(0)
   end
 
   def date_of_transmission
@@ -41,6 +43,14 @@ class Encryptor
     @offsets[:c_offset] = offset[2].to_i
     @offsets[:d_offset] = offset[3].to_i
     @offsets
+  end
+
+  def shift_generator
+    @shifts[:a_shift] = @keys[:a_key] + @offsets[:a_offset]
+    @shifts[:b_shift] = @keys[:b_key] + @offsets[:b_offset]
+    @shifts[:c_shift] = @keys[:c_key] + @offsets[:c_offset]
+    @shifts[:d_shift] = @keys[:d_key] + @offsets[:d_offset]
+    @shifts
   end
 
 

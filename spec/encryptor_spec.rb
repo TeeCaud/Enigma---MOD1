@@ -40,4 +40,15 @@ RSpec.describe Encryptor do
   it "can generate offsets" do
     expect(@encrypt.generate_offsets).to eq({:a_offset=>1, :b_offset=>0, :c_offset=>2, :d_offset=>5})
   end
+
+  it "has a shift" do
+    expect(@encrypt.shifts).to eq({})
+  end
+
+  it "has a shift generator" do
+    @encrypt.generate_keys
+    @encrypt.generate_offsets
+    # binding.pry
+    expect(@encrypt.shift_generator).to eq({:a_shift=>3, :b_shift=>27, :c_shift=>73, :d_shift=>20})
+  end
 end
