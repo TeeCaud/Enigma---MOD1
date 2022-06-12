@@ -14,7 +14,6 @@ class Encryptor
     @key = key
     @date = date
     @character_set = ("a".."z").to_a <<  " "
-    @date_of_transmission = @date.to_i ** 2
     @keys = Hash.new(0)
     @offsets = Hash.new(0)
     @shifts = Hash.new(0)
@@ -45,7 +44,7 @@ class Encryptor
     @offsets
   end
 
-  def shift_generator
+  def generate_shifts
     @shifts[:a_shift] = @keys[:a_key] + @offsets[:a_offset]
     @shifts[:b_shift] = @keys[:b_key] + @offsets[:b_offset]
     @shifts[:c_shift] = @keys[:c_key] + @offsets[:c_offset]
@@ -54,6 +53,13 @@ class Encryptor
   end
 
 
-    def encrypt
+    def encrypt_message
+      letter_array = []
+      @message.chars.each do |char|
+        letter_array << char
+        binding.pry
+      end
+
+      # binding.pry
   end
 end

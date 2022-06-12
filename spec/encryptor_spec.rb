@@ -1,5 +1,6 @@
 require './lib/encryptor'
 require './lib/enigma'
+require 'pry'
 
 RSpec.describe Encryptor do
   before :each do
@@ -48,7 +49,14 @@ RSpec.describe Encryptor do
   it "has a shift generator" do
     @encrypt.generate_keys
     @encrypt.generate_offsets
-    # binding.pry
-    expect(@encrypt.shift_generator).to eq({:a_shift=>3, :b_shift=>27, :c_shift=>73, :d_shift=>20})
+    expect(@encrypt.generate_shifts).to eq({:a_shift=>3, :b_shift=>27, :c_shift=>73, :d_shift=>20})
+  end
+
+  it "can encrypt a message" do
+    @encrypt.generate_keys
+    @encrypt.generate_offsets
+    @encrypt.generate_shifts
+    binding.pry
+    expect(@encrypt.encrypt_message).to eq("kedor ohuwl")
   end
 end
