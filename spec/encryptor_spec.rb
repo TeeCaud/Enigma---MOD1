@@ -1,6 +1,4 @@
 require './lib/encryptor'
-require './lib/enigma'
-
 
 RSpec.describe Encryptor do
   before :each do

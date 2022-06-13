@@ -1,12 +1,8 @@
-require './lib/encryptor'
-require './lib/decryptor'
+require './lib/generators'
 class Enigma
+  include Generators
 
   def initialize
-  end
-
-  def key_generator
-    key = 5.times.map { rand(10) }.join
   end
 
   def generate_date
