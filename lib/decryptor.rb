@@ -1,7 +1,9 @@
 require './lib/generators'
-
+require './lib/enigma'
+require 'pry'
 class Decryptor
   include Generators
+
   attr_reader :message,
             :key,
             :date,
@@ -21,15 +23,18 @@ class Decryptor
   end
 
   def decrypt
-    generate_shifts
+    generate_date if @date == nil
     generate_keys
     generate_offsets
+    generate_shifts
     index = 0
     decryption_message = @message.chars.map do |char|
-      if ([(32..96).to_a, (123..126).to_a].flatten).include?(char.ord)
-     index += 1
+      if !character_set.include?(char)
         char
       else
+        if char.ord == 32
+          char = "{"
+        end
         if index == 0
           index += 1
           @character_set.rotate(char.ord - 97 - @shifts[:a_shift])[0]

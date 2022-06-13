@@ -1,12 +1,10 @@
 require './lib/enigma'
 require './lib/encryptor'
-require 'pry'
-
 
 file = File.open(ARGV[0], "r")
-text = file.read
+text = file.read.chomp
 file.close
-results = Enigma.new.encrypt(text)
+results = Enigma.new.encrypt(text, ARGV[2], ARGV[3])
 encrypted = File.open(ARGV[1], "w")
 
 encrypted.write(results[:encryption])
