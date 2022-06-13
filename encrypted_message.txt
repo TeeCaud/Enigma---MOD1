@@ -1,0 +1,1 @@
+{:date=>"040895", :encryption=>"jqxu epu oip!", :key=>"43678"}
