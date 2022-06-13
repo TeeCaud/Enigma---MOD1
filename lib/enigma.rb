@@ -1,4 +1,7 @@
 require './lib/generators'
+require './lib/encryptor'
+require './lib/decryptor'
+
 class Enigma
   include Generators
 
