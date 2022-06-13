@@ -1,5 +1,4 @@
 require './lib/decryptor'
-require './lib/generators'
 
 RSpec.describe Decryptor do
   before :each do

@@ -1,5 +1,5 @@
-require 'pry'
 require './lib/generators'
+
 class Encryptor
   include Generators
 
