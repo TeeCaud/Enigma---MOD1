@@ -1,4 +1,5 @@
 require './lib/generators'
+require './lib/enigma'
 
 class Encryptor
   include Generators
@@ -22,15 +23,20 @@ class Encryptor
   end
 
   def encrypt
+    key_generator if @key == nil
+    generate_date if @date == nil
+    # require 'pry'; binding.pry
     generate_keys
     generate_offsets
     generate_shifts
     index = 0
     encryption_message = @message.chars.map do |char|
-      if ([(32..96).to_a, (123..126).to_a].flatten).include?(char.ord)
-     index += 1
+      if !character_set.include?(char)
         char
       else
+        if char.ord == 32
+          char = "{"
+        end
         if index == 0
           index += 1
           @character_set.rotate(char.ord - 97 + @shifts[:a_shift])[0]

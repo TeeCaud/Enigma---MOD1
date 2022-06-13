@@ -51,10 +51,6 @@ RSpec.describe Decryptor do
   end
 
   it "creates a hash with the decrypted message" do
-    @decrypt.generate_keys
-    @decrypt.generate_offsets
-    @decrypt.generate_shifts
-    @decrypt.decrypt
 
     expect(@decrypt.decrypt).to eq({
         decryption: "hello world",

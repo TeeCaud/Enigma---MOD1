@@ -1,7 +1,12 @@
+require 'pry'
 module Generators
 
   def date_of_transmission
     @date.to_i ** 2
+  end
+
+  def generate_date
+    @date = Time.now.strftime("%e%m%y")
   end
 
   def key_generator
@@ -18,6 +23,7 @@ module Generators
 
   def generate_offsets
     offset = (@date.to_i ** 2).to_s[-4..-1]
+    # binding.pry
     @offsets[:a_offset] = offset[0].to_i
     @offsets[:b_offset] = offset[1].to_i
     @offsets[:c_offset] = offset[2].to_i
