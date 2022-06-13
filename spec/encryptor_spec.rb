@@ -1,6 +1,5 @@
 require './lib/encryptor'
 require './lib/enigma'
-require 'pry'
 
 RSpec.describe Encryptor do
   before :each do
@@ -56,7 +55,6 @@ RSpec.describe Encryptor do
     @encrypt.generate_keys
     @encrypt.generate_offsets
     @encrypt.generate_shifts
-    binding.pry
-    expect(@encrypt.encrypt_message).to eq("kedor ohuwl")
+    expect(@encrypt.encrypt).to eq("keder ohulw")
   end
 end
