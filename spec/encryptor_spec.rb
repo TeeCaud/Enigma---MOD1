@@ -56,7 +56,11 @@ RSpec.describe Encryptor do
     @encrypt.generate_keys
     @encrypt.generate_offsets
     @encrypt.generate_shifts
-    binding.pry
-    expect(@encrypt.encrypt_message).to eq("kedor ohuwl")
+    # binding.pry
+    expect(@encrypt.encrypt).to eq("keder ohulw")
   end
+
+  # it "can decrypt" do
+  #   expect(@encrypt.decrypt_message).to eq("hello world")
+  # end
 end
