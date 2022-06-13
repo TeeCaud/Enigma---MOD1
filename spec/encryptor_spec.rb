@@ -53,10 +53,6 @@ RSpec.describe Encryptor do
   end
 
   it "creates a hash with the encrypted message" do
-    @encrypt.generate_keys
-    @encrypt.generate_offsets
-    @encrypt.generate_shifts
-    @encrypt.encrypt
     expect(@encrypt.encrypt).to eq({
       encryption: "keder ohulw",
       key: "02715",

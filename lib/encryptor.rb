@@ -53,9 +53,12 @@ class Encryptor
   end
 
   def encrypt
+    generate_keys
+    generate_offsets
     generate_shifts
     index = 0
     encryption_message = @message.chars.map do |char|
+      # binding.pry
       if ([(32..96).to_a, (123..126).to_a].flatten).include?(char.ord)
      index += 1
         char

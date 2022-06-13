@@ -52,6 +52,9 @@ class Decryptor
   end
 
   def decrypt
+    generate_shifts
+    generate_keys
+    generate_offsets
     index = 0
     decryption_message = @message.chars.map do |char|
       if ([(32..96).to_a, (123..126).to_a].flatten).include?(char.ord)
