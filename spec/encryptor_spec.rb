@@ -1,6 +1,7 @@
 require './lib/encryptor'
 require './lib/enigma'
 
+
 RSpec.describe Encryptor do
   before :each do
     @encrypt = Encryptor.new("hello world", "02715", "040895")
@@ -51,10 +52,11 @@ RSpec.describe Encryptor do
     expect(@encrypt.generate_shifts).to eq({:a_shift=>3, :b_shift=>27, :c_shift=>73, :d_shift=>20})
   end
 
-  it "can encrypt a message" do
-    @encrypt.generate_keys
-    @encrypt.generate_offsets
-    @encrypt.generate_shifts
-    expect(@encrypt.encrypt).to eq("keder ohulw")
+  it "creates a hash with the encrypted message" do
+    expect(@encrypt.encrypt).to eq({
+      encryption: "keder ohulw",
+      key: "02715",
+      date: "040895"
+    })
   end
 end
