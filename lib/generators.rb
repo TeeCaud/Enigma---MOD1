@@ -32,3 +32,4 @@ module Generators
     @shifts[:d_shift] = @keys[:d_key] + @offsets[:d_offset]
     @shifts
   end
+end
