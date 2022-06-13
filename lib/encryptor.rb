@@ -52,11 +52,8 @@ class Encryptor
     @shifts
   end
 
-
-
-
-
   def encrypt
+    generate_shifts
     index = 0
     encryption_message = @message.chars.map do |char|
       if ([(32..96).to_a, (123..126).to_a].flatten).include?(char.ord)
@@ -80,5 +77,10 @@ class Encryptor
         end
       end
     end.join
+    encrypt_instance = Hash.new(0)
+    encrypt_instance[:encryption] = encryption_message
+    encrypt_instance[:key] = @key
+    encrypt_instance[:date] = @date
+    encrypt_instance
   end
 end

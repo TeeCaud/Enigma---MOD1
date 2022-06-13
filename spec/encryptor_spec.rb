@@ -52,10 +52,15 @@ RSpec.describe Encryptor do
     expect(@encrypt.generate_shifts).to eq({:a_shift=>3, :b_shift=>27, :c_shift=>73, :d_shift=>20})
   end
 
-  it "can encrypt a message" do
+  it "creates a hash with the encrypted message" do
     @encrypt.generate_keys
     @encrypt.generate_offsets
     @encrypt.generate_shifts
-    expect(@encrypt.encrypt).to eq("keder ohulw")
+    @encrypt.encrypt
+    expect(@encrypt.encrypt).to eq({
+      encryption: "keder ohulw",
+      key: "02715",
+      date: "040895"
+    })
   end
 end

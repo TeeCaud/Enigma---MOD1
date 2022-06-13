@@ -50,10 +50,16 @@ RSpec.describe Decryptor do
     expect(@decrypt.generate_shifts).to eq({:a_shift=>3, :b_shift=>27, :c_shift=>73, :d_shift=>20})
   end
 
-  it "can decrypt a message" do
+  it "creates a hash with the decrypted message" do
     @decrypt.generate_keys
     @decrypt.generate_offsets
     @decrypt.generate_shifts
-    expect(@decrypt.decrypt).to eq("hello world")
+    @decrypt.decrypt
+
+    expect(@decrypt.decrypt).to eq({
+        decryption: "hello world",
+        key: "02715",
+        date: "040895"
+      })
   end
 end
