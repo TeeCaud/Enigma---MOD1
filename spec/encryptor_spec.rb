@@ -57,4 +57,14 @@ RSpec.describe Encryptor do
       date: "040895"
     })
   end
+
+  it "will return a special character" do
+    encrypt = Encryptor.new("hello world!", "02715", "040895")
+
+    expect(encrypt.encrypt).to eq({
+      encryption: "keder ohulw!",
+      key: "02715",
+      date: "040895"
+        })
+  end
 end

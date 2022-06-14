@@ -25,7 +25,6 @@ class Encryptor
   def encrypt
     key_generator if @key == nil
     generate_date if @date == nil
-    # require 'pry'; binding.pry
     generate_keys
     generate_offsets
     generate_shifts

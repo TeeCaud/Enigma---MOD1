@@ -8,10 +8,6 @@ class Enigma
   def initialize
   end
 
-  # def generate_date
-  #   Time.now.strftime("%e%m%y")
-  # end
-
   def encrypt(message, key = nil, date = nil)
     Encryptor.new(message, key, date).encrypt
   end
