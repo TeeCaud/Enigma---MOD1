@@ -60,10 +60,10 @@ RSpec.describe Decryptor do
   end
 
   it "will return a special character" do
-    encrypt = Encryptor.new("hello world!", "02715", "040895")
+    decrypt = Decryptor.new("keder ohulw!", "02715", "040895")
 
-    expect(encrypt.encrypt).to eq({
-      encryption: "keder ohulw!",
+    expect(decrypt.decrypt).to eq({
+      decryption: "hello world!",
       key: "02715",
       date: "040895"
         })
