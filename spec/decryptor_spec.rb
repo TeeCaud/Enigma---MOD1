@@ -58,4 +58,14 @@ RSpec.describe Decryptor do
         date: "040895"
       })
   end
+
+  it "will return a special character" do
+    decrypt = Decryptor.new("keder ohulw!", "02715", "040895")
+
+    expect(decrypt.decrypt).to eq({
+      decryption: "hello world!",
+      key: "02715",
+      date: "040895"
+        })
+  end
 end
