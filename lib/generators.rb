@@ -1,4 +1,3 @@
-require 'pry'
 module Generators
 
   def date_of_transmission
@@ -23,7 +22,6 @@ module Generators
 
   def generate_offsets
     offset = (@date.to_i ** 2).to_s[-4..-1]
-    # binding.pry
     @offsets[:a_offset] = offset[0].to_i
     @offsets[:b_offset] = offset[1].to_i
     @offsets[:c_offset] = offset[2].to_i
